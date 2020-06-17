@@ -38,7 +38,6 @@ tidy.issue <- function(x) {
     if (is.named(x$assignees)) {
         assignees <- user(x$assignees)
     } else {
-        browser(expr = is.list(x$assignees))
         assignees <- apply_class(x$assignees, "assignees")
     }
     if (is.named(x$assignee)) {
@@ -46,12 +45,19 @@ tidy.issue <- function(x) {
     } else {
         assignee <- apply_class(x$assignee, "assignee")
     }
-    list(assignees,
-         assignee,
+    list(assignees = assignees,
+         assignee = assignee,
          label = labels(x$labels),
          state = x$state,
+         locked = x$locked,
          milestone = milestones(x$milestone),
          n_comments = x$comments,
+         title = x$title,
+         created = x$created_at,
+         updated = x$updated_at,
+         association = x$author_association,
+         user = user(x$user),
+         text = x$body,
          id = x$number)
 }
 
