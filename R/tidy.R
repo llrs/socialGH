@@ -1,12 +1,14 @@
 
 comment <- function(x) {
-    c(text = x$body, created = x$created_at, updated = x$updated_at,
+    l <- list(text = x$body, created = x$created_at, updated = x$updated_at,
       association = x$author_association, user(x$user),
       id = url2id(x$issue_url))
+    names(l)[names(l) == "user"] <- "commenter"
+    l
 }
 
 user <- function(x) {
-    c(user = x$login, type = x$type, admin = x$site_admin)
+    list(user = x$login, type = x$type, admin = x$site_admin)
 }
 
 labels <- function(y) {
@@ -21,12 +23,12 @@ milestones <- function(x) {
 }
 
 assignees <- function(x) {
-    c(n_comments = x$comments, assigned = x$created_at, user(x))
+    list(n_comments = x$comments, assigned = x$created_at, user(x))
 }
 
 issue <- function(x) {
-2
-    c(assignees = simplify(x$assignees, assignees),
+
+    list(assignees = simplify(x$assignees, assignees),
       assignee = simplify(x$assignee, user),
       label = labels(x$labels),
       state = x$state,
@@ -37,11 +39,14 @@ issue <- function(x) {
       created = x$created_at,
       updated = x$updated_at,
       association = x$author_association,
-      user = user(x$user),
+      commenter = user(x$user),
       text = x$body,
       id = x$number)
 }
 
 event <- function(x) {
-    c(issue = issue(x$issue), event = c(name = x$event, date = x$created_at, user(x$actor)))
+    # browser()
+    event <- c(event = x$event, date = x$created_at, user(x$actor))
+    names(event)[names(event) == "user"] <- "trigger"
+    c(issue(x$issue), event)
 }
