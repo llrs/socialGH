@@ -6,6 +6,7 @@
 #' repository.
 #' @return A data.frame with the information available about the issue.
 #' @seealso [get_comments()]
+#' @export
 #' @examples
 #' issues <- get_issues("llrs/blogR")
 #' @importFrom gh gh

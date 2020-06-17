@@ -1,3 +1,5 @@
 ^socialGH\.Rproj$
 ^\.Rproj\.user$
 ^README\.Rmd$
+^codecov\.yml$
+^LICENSE\.md$

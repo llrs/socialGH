@@ -21,6 +21,7 @@ get_comments <- function(repository, issue) {
 }
 
 
+#' @export
 #' @describeIn get_comments The same but for all comments of a repository.
 get_all_comments <- function(repository) {
     comments <- gh("/repos/:repo/issues/comments", .limit = Inf,

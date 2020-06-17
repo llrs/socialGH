@@ -4,6 +4,7 @@
 #' @param repository A character of repository "owner/repo".
 #' @param issue The number of the issue
 #' @seealso [get_issue()]
+#' @export
 #' @examples
 #' get_events("llrs/blogR", 2)
 get_events <- function(repository, issue) {
