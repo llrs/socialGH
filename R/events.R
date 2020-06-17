@@ -8,8 +8,10 @@
 #' get_events("llrs/blogR", 2)
 get_events <- function(repository, issue) {
     events <- gh("/repos/:repo/issues/:issue/events",
-                 repo = repository, issue = issue, .limit = Inf, per_page = 100)
-    df <- apply_class(events, "events")
+                 repo = repository, issue = issue, .limit = Inf,
+                 .send_headers = header,
+                 .accept = accept)
+    df <- apply_class(events, "event")
     df$date <- convert_dates(df$date)
     df$admin <- as.logical(df$admin)
     df

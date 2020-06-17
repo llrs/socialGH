@@ -11,7 +11,8 @@
 #' get_comments("llrs/blogR", 10)
 get_comments <- function(repository, issue) {
     comments <- gh("/repos/:repo/issues/:issue/comments",
-                   repo = repository, issue = issue, .limit = Inf)
+                   repo = repository, issue = issue, .limit = Inf,
+                   .send_headers = header)
     df <- apply_class(comments, "comment")
     df$created <- convert_dates(df$created)
     df$updated <- convert_dates(df$updated)
@@ -22,7 +23,9 @@ get_comments <- function(repository, issue) {
 
 #' @describeIn get_comments The same but for all comments of a repository.
 get_all_comments <- function(repository) {
-    comments <- gh("/repos/:repo/issues/comments", .limit = Inf, repo = repository)
+    comments <- gh("/repos/:repo/issues/comments", .limit = Inf,
+                   repo = repository,
+                   .send_headers = header)
     df <- apply_class(comments, "comment")
     df$created <- convert_dates(df$created)
     df$updated <- convert_dates(df$updated)
