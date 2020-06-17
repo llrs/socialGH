@@ -2,12 +2,9 @@
 % Please edit documentation in R/comments.R
 \name{get_comments}
 \alias{get_comments}
-\alias{get_all_comments}
 \title{Retrieve comments}
 \usage{
-get_comments(repository, issue)
-
-get_all_comments(repository)
+get_comments(repository, issue = NULL)
 }
 \arguments{
 \item{repository}{A character of repository "owner/repo".}
@@ -20,11 +17,6 @@ A \code{data.frame}
 \description{
 Tidy comments of a repository
 }
-\section{Functions}{
-\itemize{
-\item \code{get_all_comments}: The same but for all comments of a repository.
-}}
-
 \examples{
 get_comments("llrs/blogR", 10)
 }

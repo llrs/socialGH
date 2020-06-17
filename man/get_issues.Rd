@@ -4,7 +4,7 @@
 \alias{get_issues}
 \title{Get issues from a repository}
 \usage{
-get_issues(repository)
+get_issues(repository, issue = NULL)
 }
 \arguments{
 \item{repository}{A character of form "user/repo" pointing to an existing
@@ -14,10 +14,15 @@ repository.}
 A data.frame with the information available about the issue.
 }
 \description{
-Download all the opening issues of a repository
+Download all the opening issues of a repository.
+}
+\details{
+\code{\link[=get_issues]{get_issues()}} does not retrieve comments, or actions done on the issues.
+Just the current state of it
 }
 \examples{
 issues <- get_issues("llrs/blogR")
+get_issue("llrs/blogR", 11)
 }
 \seealso{
 \code{\link[=get_comments]{get_comments()}}

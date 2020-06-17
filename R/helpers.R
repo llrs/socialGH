@@ -12,9 +12,9 @@ apply_class <- function(x, class) {
     if (is.null(x) | length(x) == 0) {
         return(NULL)
     }
-    if (length(x) == 1) {
-        class(x[[1]]) <- c(class, class(x[[1]]))
-        l <- tidy(x[[1]])
+    if (is.named(x)) {
+        class(x) <- c(class, class(x))
+        l <- tidy(x)
     } else{
         l <- lapply(x, function(x) {
             class(x) <- c(class, class(x))
@@ -26,6 +26,20 @@ apply_class <- function(x, class) {
                         stringsAsFactors = FALSE, optional = FALSE)
 }
 
+
+simplify <- function(x, FUN) {
+    if (is.null(x) | length(x) == 0) {
+        return(NULL)
+    }
+    if (is.named(x)) {
+        l <- FUN(x)
+    } else{
+        l <- lapply(x, FUN = FUN)
+    }
+    m <- simplify2array(l, higher = FALSE)
+    as.data.frame(t(m), fix.empty.names = FALSE,
+                  stringsAsFactors = FALSE, optional = FALSE)
+}
 is.named <- function(x) {
     !is.null(names(x))
 }
