@@ -12,7 +12,7 @@
 #' @export
 #' @examples
 #' issues <- get_issues("llrs/blogR")
-#' get_issue("llrs/blogR", 11)
+#' get_issues("llrs/blogR", 11)
 #' @importFrom gh gh
 get_issues <- function(repository, issue = NULL) {
 
@@ -27,15 +27,15 @@ get_issues <- function(repository, issue = NULL) {
                      .send_headers = header)
     }
 
-    issues <- apply_class(issues, "issue")
-    issues$state <- unlist(issues$state, FALSE, FALSE)
-    issues$id <- unlist(issues$id, FALSE, FALSE)
-    issues$n_comments <- unlist(issues$n_comments, FALSE, FALSE)
-    issues$text <- unlist(issues$text, FALSE, FALSE)
-    issues$title <- unlist(issues$title, FALSE, FALSE)
-    issues$created <- convert_dates(unlist(issues$created, FALSE, FALSE))
-    issues$updated <- convert_dates(unlist(issues$updated, FALSE, FALSE))
-    issues
+    df <- simplify(issues, issue)
+    unlist_vec <- c("state", "id", "n_comments", "text", "title",
+                    "association", "locked", "created", "updated", "poster",
+                    "type", "admin")
+    df[unlist_vec] <- lapply(df[unlist_vec], unlist,
+                                 use.names = FALSE, recursive = FALSE)
+    df$created <- convert_dates(df$created)
+    df$updated <- convert_dates(df$updated)
+    df
 }
 
 
