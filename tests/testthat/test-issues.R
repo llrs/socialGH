@@ -1,4 +1,31 @@
-test_that("issues works", {
-    testthat::skip_if_offline()
-    expect_equal(2 * 2, 4)
+test_that("single issues works", {
+    skip_if_offline()
+    i2 <- get_issues("llrs/blogR", 2)
+    expect_s3_class(i2, "data.frame")
+    expect_equal(nrow(i2), 1)
+    expect_equal(colnames(i2),
+                 c("assignees", "assignee", "label", "state", "locked", "milestone",
+                   "n_comments", "title", "created", "updated", "association", "text",
+                   "id", "poster", "type", "admin"))
+})
+
+test_that("incorrect repo", {
+    skip_if_offline()
+    expect_error(get_issues("llrs/blogRs", 2))
+})
+
+test_that("multiple issues works", {
+    skip_if_offline()
+    i <- get_issues("llrs/eigen")
+    expect_null(i2)
+})
+
+test_that("multiple issues work", {
+    skip_if_offline()
+    i2 <- get_issues("llrs/blogR")
+    expect_s3_class(i2, "data.frame")
+    expect_equal(colnames(i2),
+                 c("assignees", "assignee", "label", "state", "locked", "milestone",
+                   "n_comments", "title", "created", "updated", "association", "text",
+                   "id", "poster", "type", "admin"))
 })
