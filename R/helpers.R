@@ -31,6 +31,7 @@ simplify <- function(x, FUN) {
     if (is.null(x) | length(x) == 0) {
         return(NULL)
     }
+    FUN <- match.fun(FUN = FUN)
     if (is.named(x)) {
         l <- FUN(x)
     } else{
@@ -40,6 +41,7 @@ simplify <- function(x, FUN) {
     as.data.frame(t(m), fix.empty.names = FALSE,
                   stringsAsFactors = FALSE, optional = FALSE)
 }
+
 is.named <- function(x) {
     !is.null(names(x))
 }
