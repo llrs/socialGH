@@ -44,6 +44,7 @@ issue <- function(x) {
        association = x$author_association,
        text = x$body,
        id = x$number,
+       closer = user(x$closed_by),
        poster = user(x$user))
 }
 
@@ -51,4 +52,27 @@ event <- function(x) {
     i <- issue(x$issue)
     l <- list(event = x$event, date = x$created_at, triggerer =  user(x$actor))
     c(i, l)
+}
+
+
+
+pull_request <- function(x) {
+
+  list(assignees = simplify(x$assignees, assignees),
+       assignee = simplify(x$assignee, user),
+       label = labels(x$labels),
+       state = x$state,
+       locked = x$locked,
+       milestone = milestones(x$milestone),
+       title = x$title,
+       created = x$created_at,
+       updated = x$updated_at,
+       closed = x$closed_at,
+       merged = x$merged_at,
+       requested_reviewer = simplify(x$requested_reviewer, user),
+       draft = x$draft,
+       association = x$author_association,
+       text = x$body,
+       id = x$number,
+       submitter = user(x$user))
 }
