@@ -6,12 +6,19 @@
 #' @export
 #'
 #' @examples
+#' get_pr("llrs/BioCor", 27)
 #' get_pr("llrs/BioCor")
-get_pr <- function(repository) {
+get_pr <- function(repository, issue = NULL) {
+    if (is.null(issue)) {
+        pr <- gh("/repos/:repo/pulls", repo = repository,
+                 .accept = accept, .send_headers = header,
+                 state = "all")}
+    else {
+        pr <- gh("/repos/:repo/pulls/:issue", repo = repository,
+                 .accept = accept, .send_headers = header, issue = issue,
+                 state = "all")
+    }
 
-    pr <- gh("/repos/:repo/pulls", repo = repository,
-             .accept = accept, .send_headers = header,
-             state = "all")
     pull_requests <- simplify(pr, pull_request)
     if (is.null(pull_requests)) {
         return(pull_requests)
