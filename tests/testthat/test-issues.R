@@ -17,7 +17,7 @@ test_that("incorrect repo", {
 test_that("multiple issues works", {
     skip_if_offline()
     i <- get_issues("llrs/eigen")
-    expect_null(i2)
+    expect_null(i)
 })
 
 test_that("multiple issues work", {

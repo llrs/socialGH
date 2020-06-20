@@ -50,7 +50,6 @@ issue <- function(x) {
 }
 
 event <- function(x) {
-    # browser()
     i <- issue(x$issue)
     l <- list(event = x$event, date = x$created_at)
     u <- user(x$actor, "trigger")
