@@ -8,25 +8,6 @@ convert_dates <- function(x) {
     as.POSIXct(strptime(x, "%Y-%m-%dT%H:%M:%SZ"))
 }
 
-apply_class <- function(x, class) {
-    if (is.null(x) | length(x) == 0) {
-        return(NULL)
-    }
-    if (is.named(x)) {
-        class(x) <- c(class, class(x))
-        l <- tidy(x)
-    } else{
-        l <- lapply(x, function(x) {
-            class(x) <- c(class, class(x))
-            tidy(x)
-        })
-    }
-    m <- simplify2array(l, higher = FALSE)
-    as.data.frame(t(m), fix.empty.names = FALSE,
-                        stringsAsFactors = FALSE, optional = FALSE)
-}
-
-
 simplify <- function(x, FUN) {
     if (is.null(x) | length(x) == 0) {
         return(NULL)
