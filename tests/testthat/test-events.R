@@ -10,5 +10,5 @@ test_that("multiple get_events works", {
     expect_equal(colnames(ge),
                  c("assignees", "assignee", "label", "state", "locked", "milestone",
                    "n_comments", "title", "created", "updated", "association", "text",
-                   "id", "closer", "poster", "event", "date", "triggerer"))
+                   "id", "closer", "poster", "event", "date", "triggerer", "action"))
 })

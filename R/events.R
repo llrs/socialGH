@@ -1,8 +1,10 @@
-#' Retrieve events of an issue
+#' Retrieve events
 #'
-#'
+#' Retrieve events from a repository or issue.
 #' @param repository A character of repository "owner/repo".
 #' @param issue The number of the issue
+#' @return A `data.frame` with the information available for the event and the
+#' issue it is linked.
 #' @seealso [get_issue()]
 #' @export
 #' @examples
@@ -22,6 +24,7 @@ get_events <- function(repository, issue = NULL) {
                      .send_headers = header,
                      .accept = accept)
     }
+
     df <- simplify(events, event)
     unlist_vec <- c("state", "id", "n_comments", "text", "title",
                     "association", "locked", "created", "updated")

@@ -11,11 +11,11 @@
 get_pr <- function(repository, issue = NULL) {
     if (is.null(issue)) {
         pr <- gh("/repos/:repo/pulls", repo = repository,
-                 .accept = accept, .send_headers = header,
+                 .accept = accept[3], .send_headers = header,
                  state = "all")}
     else {
         pr <- gh("/repos/:repo/pulls/:issue", repo = repository,
-                 .accept = accept, .send_headers = header, issue = issue,
+                 .accept = accept, .send_headers = header[3], issue = issue,
                  state = "all")
     }
 
@@ -26,7 +26,8 @@ get_pr <- function(repository, issue = NULL) {
 
     unlist_vec <- c("state", "id", "text", "title",
                     "association", "locked", "created", "updated", "closed",
-                    "merged", "draft")
+                    "merged", "draft", "maintainer_can_modify", "n_commits",
+                    "additions", "deletions", "changed_files")
     df <- simplify_df(pull_requests, unlist_vec)
     df$created <- convert_dates(df$created)
     df$updated <- convert_dates(df$updated)
