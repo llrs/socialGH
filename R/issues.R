@@ -28,6 +28,9 @@ get_issues <- function(repository, issue = NULL) {
     }
 
     df <- simplify(issues, issue)
+    if (is.null(df)) {
+        return(df)
+    }
     unlist_vec <- c("state", "id", "n_comments", "text", "title",
                     "association", "locked", "created", "updated", "poster",
                     "type", "admin")
