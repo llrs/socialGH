@@ -45,3 +45,14 @@ simplify <- function(x, FUN) {
 is.named <- function(x) {
     !is.null(names(x))
 }
+
+simplify_df <- function(df, columns) {
+    keep <- !check_null(df[columns])
+    df[columns][keep] <- lapply(df[columns][keep], unlist,
+                          recursive = FALSE, use.names = FALSE)
+    df
+}
+
+check_null <- function(df) {
+    vapply(df, function(x){is.null(x[[1]])}, logical(1))
+}

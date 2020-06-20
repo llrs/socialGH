@@ -32,10 +32,8 @@ get_issues <- function(repository, issue = NULL) {
         return(df)
     }
     unlist_vec <- c("state", "id", "n_comments", "text", "title",
-                    "association", "locked", "created", "updated", "poster",
-                    "type", "admin")
-    df[unlist_vec] <- lapply(df[unlist_vec], unlist,
-                                 use.names = FALSE, recursive = FALSE)
+                    "association", "locked", "created", "updated")
+    df <- simplify_df(df, unlist_vec)
     df$created <- convert_dates(df$created)
     df$updated <- convert_dates(df$updated)
     df

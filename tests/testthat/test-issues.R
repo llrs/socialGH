@@ -6,7 +6,7 @@ test_that("single issues works", {
     expect_equal(colnames(i2),
                  c("assignees", "assignee", "label", "state", "locked", "milestone",
                    "n_comments", "title", "created", "updated", "association", "text",
-                   "id", "poster", "type", "admin"))
+                   "id", "poster"))
 })
 
 test_that("incorrect repo", {
@@ -27,5 +27,5 @@ test_that("multiple issues work", {
     expect_equal(colnames(i2),
                  c("assignees", "assignee", "label", "state", "locked", "milestone",
                    "n_comments", "title", "created", "updated", "association", "text",
-                   "id", "poster", "type", "admin"))
+                   "id", "poster"))
 })

@@ -6,10 +6,9 @@ user <- function(x, name = "user") {
 }
 
 comment <- function(x) {
-    l <- list(text = x$body, created = x$created_at, updated = x$updated_at,
-      association = x$author_association, id = url2id(x$issue_url))
-    u <- user(x$user, "commenter")
-    c(l, u)
+    list(text = x$body, created = x$created_at, updated = x$updated_at,
+      association = x$author_association, id = url2id(x$issue_url),
+      commenter = user(x$user))
 }
 
 labels <- function(y) {
@@ -32,26 +31,24 @@ assignees <- function(x) {
 
 issue <- function(x) {
 
-    l <- list(assignees = simplify(x$assignees, assignees),
-      assignee = simplify(x$assignee, user),
-      label = labels(x$labels),
-      state = x$state,
-      locked = x$locked,
-      milestone = milestones(x$milestone),
-      n_comments = x$comments,
-      title = x$title,
-      created = x$created_at,
-      updated = x$updated_at,
-      association = x$author_association,
-      text = x$body,
-      id = x$number)
-    u <- user(x$user, "poster")
-    c(l, u)
+  list(assignees = simplify(x$assignees, assignees),
+       assignee = simplify(x$assignee, user),
+       label = labels(x$labels),
+       state = x$state,
+       locked = x$locked,
+       milestone = milestones(x$milestone),
+       n_comments = x$comments,
+       title = x$title,
+       created = x$created_at,
+       updated = x$updated_at,
+       association = x$author_association,
+       text = x$body,
+       id = x$number,
+       poster = user(x$user))
 }
 
 event <- function(x) {
     i <- issue(x$issue)
-    l <- list(event = x$event, date = x$created_at)
-    u <- user(x$actor, "trigger")
-    c(i, l, u)
+    l <- list(event = x$event, date = x$created_at, triggerer =  user(x$actor))
+    c(i, l)
 }

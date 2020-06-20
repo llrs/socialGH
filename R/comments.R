@@ -27,8 +27,7 @@ get_comments <- function(repository, issue = NULL) {
 
     df <- simplify(comments, comment)
     unlist_vec <- c("text", "association")
-    df[unlist_vec] <- lapply(df[unlist_vec], unlist,
-                             use.names = FALSE, recursive = FALSE)
+    df <- simplify_df(df, unlist_vec)
     df$created <- convert_dates(df$created)
     df$updated <- convert_dates(df$updated)
     df$id <- as.numeric(df$id)
