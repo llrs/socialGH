@@ -2,8 +2,7 @@
 #'
 #' Download all the labels of a repository or a single issue by id.
 #'
-#' @param repository A character of form "user/repo" pointing to an existing
-#' repository.
+#' @inheritParams get_issues
 #' @return A `data.frame` with the information available about the issue.
 #' @seealso [get_comments()]
 #' @export
@@ -24,8 +23,8 @@ get_labels <- function(repository, issue = NULL) {
     }
     # browser()
     label <- labels(labels)
-    if (is.null(df)) {
-        return(df)
+    if (is.null(label)) {
+        return(label)
     }
     if (!is.null(issue)) {
         return(data.frame(label = label, id = rep(issue, length(label))))

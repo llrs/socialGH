@@ -2,20 +2,25 @@
 % Please edit documentation in R/pr.R
 \name{get_pr}
 \alias{get_pr}
-\title{Title}
+\title{Retrieve only pull requests.}
 \usage{
-get_pr(repository)
+get_pr(repository, issue = NULL)
 }
 \arguments{
-\item{repository}{A character of form "user/repo" pointing to an existing
-repository.}
+\item{repository}{A character of repository "owner/repo".}
+
+\item{issue}{The number of the issue}
 }
 \value{
-
+A \code{data.frame} with the information of the pr
 }
 \description{
-Title
+Retrieve only pull requests from a repository.
 }
 \examples{
+get_pr("llrs/BioCor", 27)
 get_pr("llrs/BioCor")
+}
+\seealso{
+\code{\link[=get_comments]{get_comments()}} As they are also listed there.
 }

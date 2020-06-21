@@ -1,10 +1,10 @@
-#' Title
+#' Retrieve only pull requests.
 #'
+#' Retrieve only pull requests from a repository.
 #' @inheritParams get_issues
-#'
-#' @return
+#' @return A `data.frame` with the information of the pr
+#' @seealso [get_comments()] As they are also listed there.
 #' @export
-#'
 #' @examples
 #' get_pr("llrs/BioCor", 27)
 #' get_pr("llrs/BioCor")

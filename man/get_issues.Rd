@@ -2,27 +2,29 @@
 % Please edit documentation in R/issues.R
 \name{get_issues}
 \alias{get_issues}
-\title{Get issues from a repository}
+\title{Retrieve issues}
 \usage{
 get_issues(repository, issue = NULL)
 }
 \arguments{
-\item{repository}{A character of form "user/repo" pointing to an existing
-repository.}
+\item{repository}{A character of repository "owner/repo".}
+
+\item{issue}{The number of the issue}
 }
 \value{
-A data.frame with the information available about the issue.
+A \code{data.frame} with the information available about the issue. Some
+columns are lists, including those referring to users.
 }
 \description{
-Download all the opening issues of a repository.
+Download all the opening issues of a repository or a single issue by id.
 }
 \details{
 \code{\link[=get_issues]{get_issues()}} does not retrieve comments, or actions done on the issues.
-Just the current state of it
+Just the current state of issues.
 }
 \examples{
 issues <- get_issues("llrs/blogR")
-get_issue("llrs/blogR", 11)
+get_issues("llrs/blogR", 11)
 }
 \seealso{
 \code{\link[=get_comments]{get_comments()}}

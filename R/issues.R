@@ -5,8 +5,7 @@
 #' [get_issues()] does not retrieve comments, or actions done on the issues.
 #' Just the current state of issues.
 #'
-#' @param repository A character of form "user/repo" pointing to an existing
-#' repository.
+#' @inheritParams get_events
 #' @return A `data.frame` with the information available about the issue. Some
 #' columns are lists, including those referring to users.
 #' @seealso [get_comments()]

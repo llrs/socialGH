@@ -2,21 +2,27 @@
 % Please edit documentation in R/events.R
 \name{get_events}
 \alias{get_events}
-\title{Retrieve events of an issue}
+\title{Retrieve events}
 \usage{
-get_events(repository, issue)
+get_events(repository, issue = NULL)
 }
 \arguments{
 \item{repository}{A character of repository "owner/repo".}
 
 \item{issue}{The number of the issue}
 }
+\value{
+A \code{data.frame} with the information available for the event and the
+issue it is linked.
+}
 \description{
-Retrieve events of an issue
+Retrieve events from a repository or issue.
 }
 \examples{
 get_events("llrs/blogR", 2)
+ge <- get_events("llrs/blogR")
+ge[1:10, c("event", "date", "id", "assignee", "assignees")]
 }
 \seealso{
-\code{\link[=get_issue]{get_issue()}}
+\code{\link[=get_issues]{get_issues()}}
 }

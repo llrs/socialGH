@@ -5,7 +5,7 @@
 #' @param issue The number of the issue
 #' @return A `data.frame` with the information available for the event and the
 #' issue it is linked.
-#' @seealso [get_issue()]
+#' @seealso [get_issues()]
 #' @export
 #' @examples
 #' get_events("llrs/blogR", 2)
