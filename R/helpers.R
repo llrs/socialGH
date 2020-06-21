@@ -2,7 +2,8 @@ header <- c("https://github.com/r-lib/gh", "https://github.com/llrs/socialGH")
 
 accept <- c("application/vnd.github.v3+json", # default one
             "application/vnd.github.starfox-preview+json",  #issue-events
-            "application/vnd.github.sailor-v-preview+json" # locked events, PR
+            "application/vnd.github.sailor-v-preview+json", # locked events, PR
+            "application/vnd.github.mockingbird-preview+json"    # timeline
             )
 convert_dates <- function(x) {
     as.POSIXct(strptime(x, "%Y-%m-%dT%H:%M:%SZ"))

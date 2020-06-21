@@ -1,13 +1,14 @@
-#' Get issues from a repository
+#' Retrieve issues
 #'
-#' Download all the opening issues of a repository.
+#' Download all the opening issues of a repository or a single issue by id.
 #'
 #' [get_issues()] does not retrieve comments, or actions done on the issues.
-#' Just the current state of it
+#' Just the current state of issues.
 #'
 #' @param repository A character of form "user/repo" pointing to an existing
 #' repository.
-#' @return A data.frame with the information available about the issue.
+#' @return A `data.frame` with the information available about the issue. Some
+#' columns are lists, including those referring to users.
 #' @seealso [get_comments()]
 #' @export
 #' @examples
@@ -18,11 +19,11 @@ get_issues <- function(repository, issue = NULL) {
 
     if (is.null(issue)) {
         issues <- gh("/repos/:repo/issues", repo = repository, .limit = Inf,
-                     state = "all",
+                     state = "all", .accept = accept[2],
                      .send_headers = header)
     } else {
         issues <- gh("/repos/:repo/issues/:issue", repo = repository,
-                     .limit = Inf, issue = issue,
+                     .limit = Inf, issue = issue, .accept = accept[2],
                      state = "all",
                      .send_headers = header)
     }

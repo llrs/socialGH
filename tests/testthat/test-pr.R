@@ -23,4 +23,3 @@ test_that("get_pr works", {
 test_that("get_pr works", {
     expect_null(get_pr("llrs/eigen"))
 })
-LL
