@@ -6,9 +6,9 @@
 #' @seealso [get_comments()] As they are also listed there.
 #' @export
 #' @examples
-#' get_pr("llrs/BioCor", 27)
-#' get_pr("llrs/BioCor")
-get_pr <- function(repository, issue = NULL) {
+#' get_pullrequests("llrs/BioCor", 27)
+#' get_pullrequests("llrs/BioCor")
+get_pullrequests <- function(repository, issue = NULL) {
     if (is.null(issue)) {
         pr <- gh("/repos/:repo/pulls", repo = repository,
                  .accept = accept[3], .send_headers = header,

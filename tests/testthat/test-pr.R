@@ -1,5 +1,5 @@
 test_that("get_pr works", {
-    p <- get_pr("llrs/BioCor")
+    p <- get_pullrequests("llrs/BioCor")
     expect_equal(ncol(p), 23L)
     expect_equal(colnames(p),
                  c("assignees", "assignee", "label", "state", "locked", "milestone",
@@ -9,7 +9,7 @@ test_that("get_pr works", {
                  ))
 })
 test_that("get_pr works", {
-    p <- get_pr("llrs/BioCor", 27)
+    p <- get_pullrequests("llrs/BioCor", 27)
     expect_equal(ncol(p), 23)
     expect_equal(nrow(p), 1L)
     expect_equal(colnames(p),
@@ -21,5 +21,5 @@ test_that("get_pr works", {
 })
 
 test_that("get_pr works", {
-    expect_null(get_pr("llrs/eigen"))
+    expect_null(get_pullrequests("llrs/eigen"))
 })
