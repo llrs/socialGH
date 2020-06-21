@@ -49,12 +49,16 @@ issue <- function(x) {
 }
 
 event <- function(x) {
-    i <- issue(x$issue)
-    l <- list(event = x$event, date = x$created_at, triggerer =  user(x$actor))
-    c(i, l)
+  i <- issue(x$issue)
+  l <- list(event = x$event, date = x$created_at, triggerer =  user(x$actor),
+       action = ifelse(exists("rename", x), list(x$rename), list()))
+  c(i, l)
 }
 
 
+event_renamed <- function(x) {
+  list(from = x$from, to = x$to)
+}
 
 pull_request <- function(x) {
 
@@ -72,7 +76,19 @@ pull_request <- function(x) {
        requested_reviewer = simplify(x$requested_reviewer, user),
        draft = x$draft,
        association = x$author_association,
+       merger = user(x$merged_by),
+       maintainer_can_modify = x$maintainer_can_modify,
+       n_commits = x$commits,
+       additions = x$additions,
+       deletions = x$deletions,
+       changed_files = x$changed_files,
        text = x$body,
        id = x$number,
        submitter = user(x$user))
+}
+
+timeline <- function(x) {
+  list(event = x$event, date = x$created_at, triggerer =  user(x$actor),
+            action = ifelse(exists("rename", x), list(x$rename), list()))
+
 }
