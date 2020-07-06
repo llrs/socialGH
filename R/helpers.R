@@ -30,8 +30,12 @@ is.named <- function(x) {
 
 simplify_df <- function(df, columns) {
     keep <- !check_null(df[columns])
-    df[columns][keep] <- lapply(df[columns][keep], unlist,
-                          recursive = FALSE, use.names = FALSE)
+    for (col in columns[keep]) {
+        col_val <- df[[col]]
+        df[[col]] <- NA
+        df[[col]][lengths(col_val) != 0] <- unlist(col_val, FALSE, FALSE)
+    }
+
     df
 }
 
