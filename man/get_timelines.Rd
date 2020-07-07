@@ -2,7 +2,7 @@
 % Please edit documentation in R/timeline.R
 \name{get_timelines}
 \alias{get_timelines}
-\title{Retrieve timeline events}
+\title{Retrieve timeline events for each  issue}
 \usage{
 get_timelines(repository, issue = NULL)
 }
@@ -15,7 +15,7 @@ get_timelines(repository, issue = NULL)
 A \code{data.frame} when finalized.
 }
 \description{
-Retrieve timeline events
+The API returns the same output for events of a repo as for an issue
 }
 \examples{
 get_timelines("Bioconductor/Contributions", 400)

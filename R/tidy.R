@@ -1,4 +1,3 @@
-
 user <- function(x, name = "user") {
     l <- list(user = x$login, type = x$type, admin = x$site_admin)
     names(l)[1] <- name
@@ -55,7 +54,6 @@ event <- function(x) {
   c(i, l)
 }
 
-
 event_renamed <- function(x) {
   list(from = x$from, to = x$to)
 }
@@ -85,10 +83,4 @@ pull_request <- function(x) {
        text = x$body,
        id = x$number,
        submitter = user(x$user))
-}
-
-timeline <- function(x) {
-  list(event = x$event, date = x$created_at, triggerer =  user(x$actor),
-            action = ifelse(exists("rename", x), list(x$rename), list()))
-
 }

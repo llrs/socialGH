@@ -1,5 +1,7 @@
 
-#' Retrieve timeline events
+#' Retrieve timeline events for each  issue
+#'
+#' The API returns the same output for events of a repo as for an issue
 #'
 #' @inheritParams get_issues
 #' @return A `data.frame` when finalized.
@@ -18,6 +20,7 @@ get_timelines <- function(repository, issue = NULL) {
                      state = "all",  .accept = accept[4],
                      .send_headers = header)
     }
+
     df <- simplify(timelines, issue)
     if (is.null(df)) {
         return(df)
@@ -27,5 +30,8 @@ get_timelines <- function(repository, issue = NULL) {
     df <- simplify_df(df, unlist_vec)
     df$created <- convert_dates(df$created)
     df$updated <- convert_dates(df$updated)
+    if (!is.null(issue)) {
+        df$id <- issue
+    }
     df
 }
