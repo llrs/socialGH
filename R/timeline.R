@@ -25,8 +25,8 @@ get_timelines <- function(repository, issue = NULL) {
     if (is.null(df)) {
         return(df)
     }
-    unlist_vec <- c("state", "id", "n_comments", "text", "title",
-                    "association", "locked", "created", "updated")
+    unlist_vec <- c("state", "id", "text", "title", "association", "locked",
+                    "created", "updated")
     df <- simplify_df(df, unlist_vec)
     df$created <- convert_dates(df$created)
     df$updated <- convert_dates(df$updated)
