@@ -10,10 +10,12 @@
 #' get_pullrequests("llrs/BioCor")
 get_pullrequests <- function(repository, issue = NULL) {
     if (is.null(issue)) {
+        # https://docs.github.com/en/rest/reference/pulls#list-pull-requests
         pr <- gh("/repos/:repo/pulls", repo = repository,
                  .accept = accept[3], .send_headers = header,
                  state = "all")}
     else {
+        # https://docs.github.com/en/rest/reference/pulls#get-a-pull-request
         pr <- gh("/repos/:repo/pulls/:issue", repo = repository,
                  .accept = accept, .send_headers = header[3], issue = issue,
                  state = "all")

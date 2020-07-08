@@ -47,6 +47,35 @@ issue <- function(x) {
        poster = user(x$user))
 }
 
+timeline <- function(x) {
+
+  title <- NULL
+  label <- NULL
+  if (x$event == "renamed") {
+    title <- x$rename$to
+  } else if (x$event == "labeled") {
+    label <- x$label$name
+  } else if (x$event == "unlabeled") {
+    label <- x$label$name
+  }
+  list(assignees = simplify(x$assignees, assignees),
+       assignee = simplify(x$assignee, user),
+       label = label,
+       state = x$state,
+       locked = x$locked,
+       milestone = milestones(x$milestone),
+       event = x$event,
+       actor = user(x$actor),
+       title = title,
+       created = x$created_at,
+       updated = x$updated_at,
+       association = x$author_association,
+       text = x$body,
+       id = x$number,
+       closer = user(x$closed_by),
+       poster = user(x$user))
+}
+
 event <- function(x) {
   i <- issue(x$issue)
   l <- list(event = x$event, date = x$created_at, triggerer =  user(x$actor),

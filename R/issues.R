@@ -15,7 +15,7 @@
 #' get_issues("llrs/blogR", 11)
 #' @importFrom gh gh
 get_issues <- function(repository, issue = NULL) {
-
+    # https://docs.github.com/en/rest/reference/issues#list-repository-issues
     if (is.null(issue)) {
         issues <- gh("/repos/:repo/issues", repo = repository, .limit = Inf,
                      state = "all", .accept = accept[2],

@@ -9,19 +9,19 @@
 #' @examples
 #' get_timelines("Bioconductor/Contributions", 400)
 get_timelines <- function(repository, issue = NULL) {
-
     if (is.null(issue)) {
-        timelines <- gh("/repos/:repo/issues", repo = repository, .limit = Inf,
-                     state = "all",  .accept = accept[4],
-                     .send_headers = header)
+        stop("Not available.\
+             Use get_issues and then call get_timelines for each issues",
+             call. = FALSE)
     } else {
+        # https://docs.github.com/en/rest/reference/issues#timeline
         timelines <- gh("/repos/:repo/issues/:issue/timeline", repo = repository,
                      .limit = Inf, issue = issue,
                      state = "all",  .accept = accept[4],
                      .send_headers = header)
     }
 
-    df <- simplify(timelines, issue)
+    df <- simplify(timelines, timeline)
     if (is.null(df)) {
         return(df)
     }
