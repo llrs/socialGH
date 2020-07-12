@@ -35,9 +35,14 @@ requests (PR), events, and comments on issues and PR.
 
 ``` r
 get_issues("llrs/socialGH")
-#> $created
-#> POSIXct of length 0
-#> 
-#> $updated
-#> POSIXct of length 0
+#>                   assignees          assignee                 label state
+#> 1 NA, NA, llrs, User, FALSE llrs, User, FALSE todo :spiral_notepad:  open
+#>   locked milestone n_comments                                     title
+#> 1  FALSE                    0 Replace NULL to NA when returning results
+#>               created             updated association
+#> 1 2020-07-11 12:21:51 2020-07-11 12:21:51       OWNER
+#>                                                                                                                                                    text
+#> 1 Change the default that it is returning to make it easier to filter, mutate, etc\r\nCurrently it is difficult as it need to be unpacked each time... 
+#>   id closer            poster
+#> 1  1     NA llrs, User, FALSE
 ```
