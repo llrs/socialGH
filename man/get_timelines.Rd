@@ -18,5 +18,5 @@ A \code{data.frame} when finalized.
 The API returns the same output for events of a repo as for an issue
 }
 \examples{
-get_timelines("Bioconductor/Contributions", 400)
+(gt <- get_timelines("Bioconductor/Contributions", 400))
 }

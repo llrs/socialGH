@@ -7,13 +7,16 @@
 #' @return A `data.frame` when finalized.
 #' @export
 #' @examples
-#' get_timelines("Bioconductor/Contributions", 400)
+#' (gt <- get_timelines("Bioconductor/Contributions", 400))
 get_timelines <- function(repository, issue = NULL) {
     if (is.null(issue)) {
-        stop("Not available.\
-             Use get_issues and then call get_timelines for each issues",
-             call. = FALSE)
+        # https://docs.github.com/en/rest/reference/issues#events
+        timelines <- gh("/repos/:repo/issues/events",
+                         repo = repository, .limit = Inf,
+                         state = "all", .accept = accept[1],
+                         .send_headers = header)
     } else {
+        warning("This is under preview and may fail.", call. = FALSE)
         # https://docs.github.com/en/rest/reference/issues#timeline
         timelines <- gh("/repos/:repo/issues/:issue/timeline", repo = repository,
                      .limit = Inf, issue = issue,
