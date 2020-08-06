@@ -1,6 +1,6 @@
 Package: socialGH
 Title: Retrieve issues from GitHub respositories
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Lluís",
            family = "Revilla Sancho",
