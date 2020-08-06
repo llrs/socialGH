@@ -1,5 +1,7 @@
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -34,7 +36,7 @@ remotes::install_github("llrs/socialGH")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to retrieve the issues at the current state::
 
 ```{r example, eval=FALSE, include=TRUE}
 library(socialGH)
