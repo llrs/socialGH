@@ -77,6 +77,7 @@ timeline <- function(x) {
   } else if (x$event == "unlabeled") {
     label <- x$label$name
   }
+  id <- ifelse(is.null(x$number), x$issue$number, x$number)
   l <- list(assignees = simplify(x$assignees, assignees),
             assignee = simplify(x$assignee, user),
             label = label,
@@ -90,7 +91,7 @@ timeline <- function(x) {
             updated = x$updated_at,
             association = x$author_association,
             text = x$body,
-            id = x$number,
+            id = id,
             closer = user(x$closed_by))
   lapply(l, available)
 }
