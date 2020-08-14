@@ -17,7 +17,7 @@ get_pullrequests <- function(repository, issue = NULL) {
     else {
         # https://docs.github.com/en/rest/reference/pulls#get-a-pull-request
         pr <- gh("/repos/:repo/pulls/:issue", repo = repository,
-                 .accept = accept, .send_headers = header[3], issue = issue,
+                 .accept = accept, .send_headers = header, issue = issue,
                  state = "all")
     }
 

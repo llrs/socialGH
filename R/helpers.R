@@ -1,4 +1,4 @@
-header <- c("https://github.com/r-lib/gh", "https://github.com/llrs/socialGH")
+header <- "https://github.com/llrs/socialGH"
 
 accept <- c("application/vnd.github.v3+json", # default one
             "application/vnd.github.starfox-preview+json",  #issue-events
