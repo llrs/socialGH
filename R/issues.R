@@ -15,15 +15,15 @@
 #' get_issues("llrs/blogR", 11)
 #' @importFrom gh gh
 get_issues <- function(repository, issue = NULL) {
-    # https://docs.github.com/en/rest/reference/issues#list-repository-issues
     if (is.null(issue)) {
+    # https://docs.github.com/en/rest/reference/issues#list-repository-issues
         issues <- gh("/repos/:repo/issues", repo = repository, .limit = Inf,
-                     state = "all", .accept = accept[2],
+                     state = "all", .accept = accept[1],
                      .send_headers = header)
     } else {
+        # https://docs.github.com/en/rest/reference/issues#get-an-issue
         issues <- gh("/repos/:repo/issues/:issue", repo = repository,
-                     .limit = Inf, issue = issue, .accept = accept[2],
-                     state = "all",
+                     .limit = Inf, issue = issue, .accept = accept[1],
                      .send_headers = header)
     }
 
