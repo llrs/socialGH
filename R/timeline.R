@@ -12,15 +12,13 @@ get_timelines <- function(repository, issue = NULL) {
     if (is.null(issue)) {
         # https://docs.github.com/en/rest/reference/issues#events
         timelines <- gh("/repos/:repo/issues/events",
-                         repo = repository, .limit = Inf,
-                         state = "all", .accept = accept[1],
+                         repo = repository, .limit = Inf, .accept = accept[1],
                          .send_headers = header)
     } else {
         warning("This is under preview and may fail.", call. = FALSE)
         # https://docs.github.com/en/rest/reference/issues#timeline
         timelines <- gh("/repos/:repo/issues/:issue/timeline", repo = repository,
-                     .limit = Inf, issue = issue,
-                     state = "all",  .accept = accept[4],
+                     .limit = Inf, issue = issue,  .accept = accept[4],
                      .send_headers = header)
     }
 
