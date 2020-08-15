@@ -1,4 +1,4 @@
-header <- "https://github.com/llrs/socialGH"
+header <- c("User-Agent" = "https://github.com/llrs/socialGH")
 
 accept <- c("application/vnd.github.v3+json", # default one
             "application/vnd.github.starfox-preview+json",  #issue-events
