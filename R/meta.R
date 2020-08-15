@@ -3,6 +3,7 @@
 #'
 #' Check if the API is available and how many calls can you can use.
 #' @references [Help page](https://docs.github.com/en/rest/reference/rate-limit#understanding-your-rate-limit-status)
+#' @export
 #' @examples
 #' check_api()
 check_api <- function() {
