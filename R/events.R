@@ -18,12 +18,12 @@ get_events <- function(repository, issue = NULL) {
         events <- gh("/repos/:repo/issues/events",
                      repo = repository, .limit = Inf,
                      .send_headers = header,
-                     .accept = accept)
+                     .accept = accept[1])
     } else {
         events <- gh("/repos/:repo/issues/:issue/events",
                      repo = repository, issue = issue, .limit = Inf,
                      .send_headers = header,
-                     .accept = accept)
+                     .accept = accept[1])
     }
 
     df <- simplify(events, event)

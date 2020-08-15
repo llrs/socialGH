@@ -2,7 +2,7 @@
 % Please edit documentation in R/meta.R
 \name{check_api}
 \alias{check_api}
-\title{Check}
+\title{Check API}
 \usage{
 check_api()
 }
