@@ -24,7 +24,7 @@ ge <- get_events("llrs/blogR")
 ge[1:10, c("event", "date", "id", "assignee", "assignees")]
 }
 \references{
-\href{https://developer.github.com/v3/issues/events/#list-issue-events}{GitHub API}
+\href{https://docs.github.com/en/rest/reference/issues#events}{GitHub API}
 }
 \seealso{
 \code{\link[=get_issues]{get_issues()}}

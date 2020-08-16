@@ -6,7 +6,7 @@
 #' @return A `data.frame` with the information available for the event and the
 #' issue it is linked.
 #' @seealso [get_issues()]
-#' @references [GitHub API](https://developer.github.com/v3/issues/events/#list-issue-events)
+#' @references [GitHub API](https://docs.github.com/en/rest/reference/issues#events)
 #' @export
 #' @examples
 #' get_events("llrs/blogR", 2)
