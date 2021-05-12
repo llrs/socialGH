@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://socialGH.llrs.dev/index.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/reference/check_api.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/reference/get_comments.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/reference/get_events.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/reference/get_issues.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/reference/get_labels.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/reference/get_pullrequests.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/reference/get_timelines.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/reference/link.html</loc>
+  </url>
+</urlset>
