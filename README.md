@@ -9,6 +9,7 @@
 coverage](https://codecov.io/gh/llrs/socialGH/branch/master/graph/badge.svg)](https://codecov.io/gh/llrs/socialGH?branch=master)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![R-CMD-check](https://github.com/llrs/socialGH/workflows/R-CMD-check/badge.svg)](https://github.com/llrs/socialGH/actions)
 <!-- badges: end -->
 
 The goal of socialGH is to help extracting information from social
@@ -37,16 +38,16 @@ requests (PR), events, and comments on issues and PR.
 ``` r
 get_issues("llrs/socialGH")
 #>                   assignees          assignee                 label  state
-#> 1                        NA                NA                         open
-#> 2 NA, NA, llrs, User, FALSE llrs, User, FALSE todo :spiral_notepad:   open
+#> 1                        NA                NA                       closed
+#> 2 NA, NA, llrs, User, FALSE llrs, User, FALSE todo :spiral_notepad: closed
 #> 3 NA, NA, llrs, User, FALSE llrs, User, FALSE todo :spiral_notepad: closed
 #>   locked milestone n_comments                                     title
 #> 1  FALSE                    0             Extract who closes the issues
 #> 2  FALSE                    0                     spiral_notepad:  open
 #> 3  FALSE                    1 Replace NULL to NA when returning results
 #>               created             updated association
-#> 1 2020-08-01 07:53:02 2020-08-01 07:53:02       OWNER
-#> 2 2020-07-12 09:07:21 2020-07-12 09:07:22        NONE
+#> 1 2020-08-01 07:53:02 2020-08-03 08:27:26       OWNER
+#> 2 2020-07-12 09:07:21 2021-04-22 08:56:00        NONE
 #> 3 2020-07-11 12:21:51 2020-08-01 07:40:22       OWNER
 #>                                                                                                                                                                                                                                                                                                                     text
 #> 1                                                                                                                                                                                                                                           Currently when the event of closed is tidied, it doesn't record who did it. 
