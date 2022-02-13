@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://socialGH.llrs.dev/404.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/authors.html</loc>
+  </url>
+  <url>
     <loc>https://socialGH.llrs.dev/index.html</loc>
   </url>
   <url>
@@ -23,6 +35,9 @@
   </url>
   <url>
     <loc>https://socialGH.llrs.dev/reference/get_timelines.html</loc>
+  </url>
+  <url>
+    <loc>https://socialGH.llrs.dev/reference/index.html</loc>
   </url>
   <url>
     <loc>https://socialGH.llrs.dev/reference/link.html</loc>
